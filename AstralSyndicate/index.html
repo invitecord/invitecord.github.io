@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astral Syndicate | Official Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-astral: #a855f7;
+            --bg-dark: #050505;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .loader-bar {
+            height: 2px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #a855f7, #3b82f6);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .astral-symbol {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4)); }
+            50% { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.7)); }
+        }
+
+        .tip-enter {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="star-field"></div>
+
+    <div class="relative w-full max-w-2xl py-12">
+        <!-- Brand Header -->
+        <div class="flex flex-col items-center mb-10 space-y-6">
+            <div class="astral-symbol w-20 h-20 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-4xl shadow-2xl relative">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"></path>
+                </svg>
+            </div>
+            <div class="text-center">
+                <h1 class="text-4xl font-black tracking-tighter text-white uppercase italic">✦ Astral Syndicate ✦</h1>
+                <p class="text-purple-400 font-mono text-[10px] uppercase tracking-[0.4em] font-bold mt-2">Neural Link Establishing</p>
+            </div>
+        </div>
+
+        <!-- Connection & Info Card -->
+        <div class="glass rounded-[2.5rem] overflow-hidden relative">
+            <div class="shimmer absolute inset-0 pointer-events-none"></div>
+            
+            <div class="p-8 md:p-12 space-y-10 relative z-10">
+                <!-- Manifest Section -->
+                <div class="text-center space-y-4">
+                    <h2 class="text-xl font-bold text-white/90">A Cosmic Haven for Gamers & Creators</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed italic">
+                        "Step into a universe built for dreamers—a sanctuary far from drama and toxicity, glowing with comfort and connection."
+                    </p>
+                </div>
+
+                <!-- Feature Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 space-y-1">
+                        <h4 class="text-xs font-black text-purple-400 uppercase tracking-widest">✧ Gaming</h4>
+                        <p class="text-xs text-gray-400">Lounges & team-up zones.</p>
+                    </div>
+                    <div class="p-4 bg-white/5 rounded-2xl border border-white/5 space-y-1">
+                        <h4 class="text-xs font-black text-blue-400 uppercase tracking-widest">✧ Creative</h4>
+                        <p class="text-xs text-gray-400">Hubs for artists & designers.</p>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="space-y-4 pt-4 border-t border-white/5">
+                    <div class="flex justify-between items-end">
+                        <div class="space-y-1">
+                            <span id="status-text" class="text-[9px] font-black uppercase tracking-[0.2em] text-purple-500/80">Synchronizing...</span>
+                            <div id="tip-container" class="h-4 overflow-hidden">
+                                <p id="tip-text" class="text-[10px] text-gray-500 italic">Preparing your celestial entry...</p>
+                            </div>
+                        </div>
+                        <span id="percent-text" class="text-xs font-mono font-bold text-white">0%</span>
+                    </div>
+                    <div class="loader-bar">
+                        <div id="loader-fill" class="loader-progress"></div>
+                    </div>
+                </div>
+
+                <!-- Manual Trigger -->
+                <div id="action-area" class="opacity-0 transition-opacity duration-700">
+                    <a href="https://discord.gg/KukMFjbGmN" class="block w-full py-4 bg-white text-black rounded-xl text-center font-black text-xs uppercase tracking-[0.2em] hover:bg-purple-50 transition-all shadow-xl">
+                        Enter Syndicate
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 space-y-4">
+            <p class="text-[10px] text-gray-500 font-medium">You belong among the stars.</p>
+            <div class="flex items-center justify-center gap-2">
+                <span class="w-8 h-[1px] bg-white/10"></span>
+                <p class="text-[9px] font-black uppercase tracking-[0.3em] text-white/30">
+                    Verified via <span class="text-purple-500/60">InviteCord</span>
+                </p>
+                <span class="w-8 h-[1px] bg-white/10"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+        const inviteLink = "https://discord.gg/KukMFjbGmN";
+        
+        const loader = document.getElementById('loader-fill');
+        const percentText = document.getElementById('percent-text');
+        const statusText = document.getElementById('status-text');
+        const tipText = document.getElementById('tip-text');
+        const tipContainer = document.getElementById('tip-container');
+        const actionArea = document.getElementById('action-area');
+
+        const statusMessages = [
+            "Opening the Cosmic Haven...",
+            "Loading Gaming Lounges...",
+            "Syncing Creative Hubs...",
+            "Filtering out Toxicity...",
+            "Finalizing Link..."
+        ];
+
+        const celestialTips = [
+            "Chill, positive vibes only here.",
+            "Support for streamers & editors.",
+            "Zero toxicity. Just comfort.",
+            "Showcase your art in the hub.",
+            "Make new friends among the stars."
+        ];
+
+        let tipIndex = 0;
+
+        function updateTip() {
+            tipContainer.classList.remove('tip-enter');
+            void tipContainer.offsetWidth;
+            tipContainer.classList.add('tip-enter');
+            tipText.innerText = celestialTips[tipIndex];
+            tipIndex = (tipIndex + 1) % celestialTips.length;
+        }
+
+        function startSequence() {
+            const interval = setInterval(() => {
+                progress += 0.5; // Slightly slower to allow reading info
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    window.location.href = inviteLink;
+                }
+
+                loader.style.width = `${progress}%`;
+                percentText.innerText = `${Math.floor(progress)}%`;
+
+                const statusIdx = Math.floor((progress / 100) * statusMessages.length);
+                if (statusMessages[statusIdx]) {
+                    statusText.innerText = statusMessages[statusIdx];
+                }
+
+                if (progress > 15) {
+                    actionArea.style.opacity = "1";
+                }
+            }, 50);
+
+            setInterval(updateTip, 3000);
+            updateTip();
+        }
+
+        window.onload = startSequence;
+    </script>
+</body>
+</html>
