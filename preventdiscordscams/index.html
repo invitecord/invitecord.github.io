@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InviteCord | Security & Anti-Scam Protocol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-primary: #6366f1;
+            --bg-dark: #09090b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 100%, hsla(225,39%,30%,0.3) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: var(--brand-primary);
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="mesh-gradient"></div>
+    
+    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-600/20">I</div>
+                <span class="font-black tracking-tighter text-xl text-white">InviteCord</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-white/60">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#security" class="hover:text-white transition-colors">Security</a>
+                <a href="https://github.com/invitecord" class="hover:text-white transition-colors">GitHub</a>
+            </div>
+            <a href="https://invitecord.github.io/InviteCord" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:bg-indigo-50 transition-all">
+                Join Hub
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative pt-24 pb-20 px-6 overflow-hidden text-center">
+        <div class="hero-glow"></div>
+        <div class="max-w-4xl mx-auto space-y-8 relative z-10">
+            <div class="inline-block px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-widest">InviteCord v4.0.1 Active</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+                Secure Links for <br><span class="text-indigo-500">Safe Communities.</span>
+            </h1>
+            <p class="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
+                InviteCord provides robust infrastructure to protect users from malicious redirects and phishing attempts.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#features" class="w-full sm:w-auto px-10 py-4 bg-indigo-600 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-lg shadow-indigo-600/20">
+                    Get Protected
+                </a>
+                <a href="https://github.com/invitecord/invitecord.github.io" class="w-full sm:w-auto px-10 py-4 glass rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-white/5 transition-all">
+                    View Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="feature-card glass p-8 rounded-[2.5rem] border border-white/5 transition-all">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.955 11.955 0 008.182 11.423 11.955 11.955 0 008.182-11.423l-1.436-8.591z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Anti-Scam Logic</h3>
+                <p class="text-white/40 text-sm leading-relaxed">We proactively identify and blacklist malicious Discord clone links and credential harvesters.</p>
+            </div>
+            <div class="feature-card glass p-8 rounded-[2.5rem] border border-white/5 transition-all">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Global Edge Verification</h3>
+                <p class="text-white/40 text-sm leading-relaxed">Our protocol verifies invite integrity at the edge, ensuring users never hit a compromised URL.</p>
+            </div>
+            <div class="feature-card glass p-8 rounded-[2.5rem] border border-white/5 transition-all">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Transparency</h3>
+                <p class="text-white/40 text-sm leading-relaxed">InviteCord is fully open-source. Audit our security methods directly on our GitHub repository.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="space-y-4 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <div class="w-8 h-8 bg-indigo-600/20 rounded-lg flex items-center justify-center font-black text-indigo-400">I</div>
+                    <span class="font-black tracking-tighter text-lg">InviteCord</span>
+                </div>
+                <p class="text-[10px] font-black uppercase tracking-[0.25em] text-white/20">
+                    Protocol Maintained by <span class="text-indigo-400/50">InviteCord</span>
+                </p>
+            </div>
+            <div class="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+                <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="#" class="hover:text-white transition-colors">Organization</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
