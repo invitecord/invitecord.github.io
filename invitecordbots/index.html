@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InviteCord Bots | Automated Defense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --brand-indigo: #6366f1; --bg-dark: #09090b; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-dark); color: white; margin: 0; scroll-behavior: smooth; }
+        .mesh-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(at 0% 0%, hsla(230, 60%, 15%, 1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(253, 16%, 7%, 1) 0, transparent 50%); z-index: -1; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .bot-glow { position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: var(--brand-indigo); filter: blur(160px); opacity: 0.1; z-index: -1; }
+        .bot-card:hover { border-color: rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.05); transform: translateY(-8px); }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent); background-size: 200% 100%; animation: shimmer 4s infinite linear; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="mesh-gradient"></div>
+
+    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center font-black text-xl italic shadow-lg shadow-indigo-600/20">I</div>
+                <span class="font-black tracking-tighter text-xl text-white">InviteCord <span class="text-indigo-400 text-sm italic">BOTS</span></span>
+            </div>
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="/" class="text-xs font-black uppercase tracking-widest text-white/50 hover:text-white transition-colors">Main Protocol</a>
+                <a href="/preventdiscordscams" class="text-xs font-black uppercase tracking-widest text-white/50 hover:text-white transition-colors">Safety Advisory</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-24 pb-16 px-6">
+        <div class="bot-glow"></div>
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <div class="inline-block px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                <span class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em]">Advanced Ecosystem Development</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+                Automated <br><span class="text-indigo-500">Community Defense.</span>
+            </h1>
+            <p class="text-xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
+                I am building a smarter, more secure future for Discord. InviteCord Bots are the next evolution in active protection.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="bot-card glass p-10 rounded-[3rem] border border-white/5 transition-all relative overflow-hidden group">
+                <div class="shimmer absolute inset-0 pointer-events-none opacity-50"></div>
+                <div class="flex justify-between items-start mb-8">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-2xl flex items-center justify-center border border-indigo-500/20 shadow-inner">
+                        <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 14.535a11.955 11.955 0 008.182 11.423 11.955 11.955 0 008.182-11.423l-1.436-8.591z"></path></svg>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
+                        <div class="status-dot"></div>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-green-500">Developing</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">InviteCord Sentry</h3>
+                <p class="text-white/40 text-sm leading-relaxed mb-8">
+                    Designed to scan and auto-detect known "Little Mia" and "Fast-Verify" style domains in real-time. It nukes malicious invites before your users can click them.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-[10px] font-bold text-white/60">
+                        <span class="text-indigo-500">✓</span> ANTI-TOKEN STEALER
+                    </div>
+                    <div class="flex items-center gap-3 text-[10px] font-bold text-white/60">
+                        <span class="text-indigo-500">✓</span> REAL-TIME DOMAIN BLACKLISTING
+                    </div>
+                </div>
+            </div>
+
+            <div class="bot-card glass p-10 rounded-[3rem] border border-white/5 transition-all relative overflow-hidden group">
+                <div class="flex justify-between items-start mb-8">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-2xl flex items-center justify-center border border-indigo-500/20 shadow-inner">
+                        <svg class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
+                        <div class="status-dot bg-yellow-500 shadow-yellow-500"></div>
+                        <span class="text-[9px] font-black uppercase tracking-widest text-yellow-500">Prototyping</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-black mb-4 uppercase tracking-tighter">InviteCord Verify</h3>
+                <p class="text-white/40 text-sm leading-relaxed mb-8">
+                    A secure alternative to shady verification bots. Uses InviteCord's proprietary protocol to verify users without asking for dangerous permissions.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-[10px] font-bold text-white/60">
+                        <span class="text-indigo-500">✓</span> NO-TOKEN OAUTH2
+                    </div>
+                    <div class="flex items-center gap-3 text-[10px] font-bold text-white/60">
+                        <span class="text-indigo-500">✓</span> PHISHING-RESISTANT FLOW
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass p-12 rounded-[3.5rem] border border-indigo-500/20 text-center relative overflow-hidden">
+            <div class="relative z-10 space-y-6">
+                <h4 class="text-xs font-black uppercase tracking-[0.4em] text-indigo-500">The Askedland Standard</h4>
+                <p class="text-2xl md:text-3xl font-bold tracking-tight max-w-3xl mx-auto italic">
+                    "We are building more than just bots; we are building a standard for how communities should be protected. If it's not InviteCord-secure, it's not secure enough."
+                </p>
+                <p class="text-[10px] font-black uppercase tracking-widest text-white/20">— Askedland, Project Lead</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-black text-white text-xs italic">I</div>
+                    <span class="font-black tracking-tighter text-lg uppercase">InviteCord <span class="text-indigo-500/50 text-sm">Ecosystem</span></span>
+                </div>
+                <p class="text-[9px] font-black uppercase tracking-[0.5em] text-white/10">
+                    Engineered by <span class="text-indigo-500/40">Askedland</span>
+                </p>
+            </div>
+            <div class="flex gap-10 text-[9px] font-black uppercase tracking-[0.2em] text-white/30">
+                <a href="/" class="hover:text-indigo-400 transition-colors">Main Hub</a>
+                <a href="/preventdiscordscams" class="hover:text-indigo-400 transition-colors">Safety Center</a>
+                <a href="https://github.com/invitecord" class="hover:text-indigo-400 transition-colors">Source Code</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
