@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InviteCord Ad</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #09090b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+        }
+
+        /* Ad frame */
+        .ad {
+            width: 300px;
+            height: 250px;
+            background: linear-gradient(145deg, #0a0a0f 0%, #111118 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+            color: white;
+        }
+
+        /* Subtle animated background glow */
+        .bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        /* Scene container */
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(10px);
+            pointer-events: none;
+            padding: 24px;
+            z-index: 1;
+        }
+        .scene.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Typography */
+        .headline {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .headline span {
+            color: #818cf8;
+        }
+        .subtitle {
+            font-size: 12px;
+            color: rgba(255,255,255,0.65);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        /* Stat bubbles */
+        .stat-row {
+            display: flex;
+            gap: 16px;
+            margin: 12px 0;
+        }
+        .stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 20px;
+            font-weight: 800;
+            color: #818cf8;
+        }
+        .stat-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* Feature tag */
+        .tag {
+            display: inline-block;
+            background: rgba(99,102,241,0.15);
+            border: 1px solid rgba(99,102,241,0.3);
+            color: #a5b4fc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .example-link {
+            font-size: 12px;
+            color: #a5b4fc;
+            font-weight: 600;
+            background: rgba(99,102,241,0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px dashed rgba(99,102,241,0.4);
+            margin-top: 4px;
+        }
+
+        /* CTA button */
+        .cta {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 20px;
+            border-radius: 24px;
+            margin-top: 10px;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(99,102,241,0.3);
+            text-decoration: none;
+        }
+        .cta:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        /* Progress dots (shows how many scenes remain) */
+        .dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 2;
+        }
+        .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: #818cf8;
+        }
+
+        /* Badge */
+        .ad-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            color: rgba(255,255,255,0.6);
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            z-index: 3;
+        }
+
+        /* Footer */
+        .footer-text {
+            position: absolute;
+            bottom: 4px;
+            width: 100%;
+            text-align: center;
+            font-size: 7px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: rgba(255,255,255,0.15);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <a class="ad" href="https://invitecord.github.io" target="_blank" rel="noopener">
+        <div class="bg-glow"></div>
+
+        <!-- Scene 1: Problem -->
+        <div class="scene active" id="s1">
+            <div class="headline">Invites Expire.<br><span>Communities Suffer.</span></div>
+            <div class="subtitle">Stop losing members to broken links</div>
+        </div>
+
+        <!-- Scene 2: Solution intro -->
+        <div class="scene" id="s2">
+            <div class="tag">PWM Protocol v4.0.1</div>
+            <div class="headline">Introducing<br><span>InviteCord</span></div>
+            <div class="subtitle">Permanent redirects for Discord</div>
+        </div>
+
+        <!-- Scene 3: Performance stats -->
+        <div class="scene" id="s3">
+            <div class="headline">Lightning Fast</div>
+            <div class="subtitle">Global CDN edge redirects</div>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-num">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">&lt;10ms</div>
+                    <div class="stat-label">Latency</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Custom slugs -->
+        <div class="scene" id="s4">
+            <div class="headline">Memorable Links</div>
+            <div class="subtitle">Custom slugs that stick</div>
+            <div class="example-link">invitecord.github.io/JoinOurTeam</div>
+        </div>
+
+        <!-- Scene 5: Final CTA with brand -->
+        <div class="scene" id="s5">
+            <div class="headline" style="font-size:24px;">InviteCord</div>
+            <div class="subtitle">Never let an invite expire again</div>
+            <span class="cta">Get Started Free</span>
+        </div>
+
+        <div class="dots" id="dotsContainer">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="footer-text">Invite Powered by InviteCord</div>
+        <div class="ad-badge">AD</div>
+    </a>
+
+    <script>
+        (function() {
+            const scenes = ['s1','s2','s3','s4','s5'].map(id => document.getElementById(id));
+            const dots = document.querySelectorAll('.dot');
+            const total = scenes.length;
+            let current = 0;
+            const sceneDuration = 3500; // ms per scene
+
+            function updateDots(index) {
+                dots.forEach((d, i) => {
+                    d.classList.toggle('active', i === index);
+                });
+            }
+
+            function showScene(index) {
+                scenes.forEach(s => s.classList.remove('active'));
+                scenes[index].classList.add('active');
+                updateDots(index);
+            }
+
+            function nextScene() {
+                current = (current + 1) % total;
+                showScene(current);
+            }
+
+            // Initial
+            showScene(0);
+
+            // Loop scenes
+            setInterval(nextScene, sceneDuration);
+        })();
+    </script>
+</body>
+</html>
